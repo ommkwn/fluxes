@@ -1,0 +1,38 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: fluxconsole
+  namespace: flux-system
+spec:
+  image: ghcr.io/ommkwn/fluxconsole
+  interval: 1m
+
+---
+
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: fluxconsole
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: fluxconsole
+  policy:
+    semver:
+      range: ">=1.0.0"
+
+---
+
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageUpdateAutomation
+metadata:
+  name: fluxconsole
+  namespace: flux-system
+spec:
+  interval: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  update:
+    path: ./FluxConsole/helm/fluxconsole/values.yaml
+    strategy: Setters

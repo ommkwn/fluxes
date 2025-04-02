@@ -1,0 +1,17 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: fluxconsole
+  namespace: flux-system
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: .FluxConsole/helm/fluxconsole
+      sourceRef:
+        kind: GitRepository
+        name: flux-system
+  values:
+    image:
+      repository: ghcr.io/ommkwn/fluxconsole
+      tag: "1.0.0"
