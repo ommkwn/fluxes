@@ -14,4 +14,8 @@ spec:
   values:
     image:
       repository: ghcr.io/ommkwn/fluxconsole
+<<<<<<< HEAD
       tag: "1.0.0"
+=======
+      tag: "1.0.1"
+>>>>>>> 7a633d3 (Added Helm chart and configuration files for Flux)
