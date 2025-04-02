@@ -7,4 +7,4 @@ spec:
   interval: 1m
   url: https://github.com/ommkwn/fluxes.git
   ref:
-    branch: main
+    branch: master
