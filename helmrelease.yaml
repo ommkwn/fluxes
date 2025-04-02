@@ -7,7 +7,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: .FluxConsole/helm/fluxconsole
+      chart: ./FluxConsole/helm/fluxconsole
       sourceRef:
         kind: GitRepository
         name: flux-system
